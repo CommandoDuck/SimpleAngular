@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+
+<div>
+    <label>Name: </label>
+    <input ng-model="myForm" type="text" placeholder="Enter Text">
+    <hr>
+    <h1>{{myForm}}</h1>
+</div>
+
+<div ng-controller="AppController as appControl">
+    <ul>
+        <li ng-repeat="Item in appControl.listItems" class="done-{{item.done}}">
+            <input ng-checked="item.don" type="checkbox" ng-model="todoDone" ng-click="appControl.UpDateListItem">
+            {{item.name}}
+        </li>
+    </ul>
+
+    <form ng-submit="appControl.addTodo()">
+        <input type="text" ng-model="appControl.todoText" size="30" placeholder="add new todo here">
+        <input type="checkbox" ng-model="appControl.markDone">
+        <input type="submit" value="add">
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script src="app/app.js"></script>
+</body>
+
+</html>
